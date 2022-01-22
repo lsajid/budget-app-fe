@@ -8,7 +8,7 @@ function Transactions() {
     const [ transactions, setTransactions ] = useState([]);
     
     useEffect(()=> {
-        axios.get(`${API_URL}/data`)
+        axios.get(`${API_URL}/transactions`)
         .then((res)=> {
             setTransactions(res.data);
         }).catch((err) => console.log(err))
@@ -18,8 +18,15 @@ function Transactions() {
         return <Transaction index={index} key={transaction.date+index} transaction={transaction}/>
     })
 
+    let accountTotal = transactions.map((el) => el.amount).reduce((acc, curr) => {
+        return acc + curr;
+    }, 0);
+
+    let displayAccountTotal = accountTotal.toFixed(2);
+
     return (
       <div className='index'>
+          <div>Account Total: {displayAccountTotal} </div>
         <section>
             <table>
                 <thead>
@@ -28,7 +35,6 @@ function Transactions() {
                         <th>Name</th>
                         <th>Amount</th>
                     </tr>
-
                 </thead>    
                 <tbody>
                         {transactionsArr}
