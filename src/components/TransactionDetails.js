@@ -3,13 +3,11 @@ import {Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
-console.log(API_URL);
 
 function TransactionDetails() {
   const [ transactions, setTransactions ] = useState([]);
   const { index } = useParams();
   let navigate = useNavigate();
-
   useEffect(() => {
     axios.get(`${API_URL}/transactions/${index}`)
     .then((res)=> {
@@ -18,7 +16,11 @@ function TransactionDetails() {
       // navigate("/not-found");
       console.log(err)
     });
-  }, [index])
+  }, [index]);
+
+  // const handleDelete = () => {
+  //   axios.delete(``)
+  // }
 
   return (
     <article className="transaction-details">

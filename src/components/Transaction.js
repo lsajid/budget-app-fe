@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Transaction( props ) {
-    const { index } = props.index;
-    const { date, name, amount } = props.transaction;
+
+function Transaction( { index, transaction} ) {
+
   return (
     <tr>
         <td>
-            {date}
+            {transaction.date}
         </td>
         <td>
-            <Link to={`/transactions/${index}`}> {name} </Link>
+            <Link to={`/transactions/${index}`}> {transaction.name} </Link> 
         </td>
         <td>
-            {amount}
+            {transaction.amount}
         </td>
     </tr>
   );
