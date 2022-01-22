@@ -18,24 +18,28 @@ function TransactionDetails() {
     });
   }, [index]);
 
-  // const handleDelete = () => {
-  //   axios.delete(``)
-  // }
+  const handleDelete = () => {
+    axios.delete(`${API_URL}/transactions/${index}`)
+      .then((res)=> {
+        window.alert(`Transaction from ${transactions.from}  $${transactions.amount} has been deleted`);
+        navigate("/");
+      }).catch((err)=> console.log(err));
+  };
 
   return (
     <article className="transaction-details">
         <h1> Transaction Details </h1>
 
         <div className="info-container">
-          <div className="date">{transactions.date}</div>
-          <div className="name">{transactions.name}</div>
-          <div className="amount">{transactions.amount}</div>
-          <div className="from">{transactions.from}</div>
+          <div className="date">Date: {transactions.date}</div>
+          <div className="name">Expenditure: {transactions.name}</div>
+          <div className="amount">${transactions.amount}</div>
+          <div className="from">By: {transactions.from}</div>
         </div>
         <div className="buttons">
           <Link to={`/`}> <button>Back</button> </Link>
           <Link to={`/transactions/${index}/edit"`}> <button>Edit</button> </Link>
-          <button>Delete</button>
+          <button onClick={handleDelete}> Delete</button>
         </div>
     </article>
   );
