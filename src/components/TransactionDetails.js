@@ -13,7 +13,7 @@ function TransactionDetails() {
     .then((res)=> {
       setTransactions(res.data)
     }).catch((err) => {
-      // navigate("/not-found");
+      navigate("/not-found");
       console.log(err)
     });
   }, [index]);
