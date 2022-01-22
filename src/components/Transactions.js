@@ -22,11 +22,9 @@ function Transactions() {
         return acc + curr;
     }, 0);
 
-    let displayAccountTotal = accountTotal.toFixed(2);
-
     return (
       <div className='index'>
-          <div>Account Total: {displayAccountTotal} </div>
+          <div>Account Total: {accountTotal} </div>
         <section>
             <table>
                 <thead>

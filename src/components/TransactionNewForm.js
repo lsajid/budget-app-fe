@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -20,7 +20,6 @@ function TransactionNewForm() {
   }
 
   const handleSubmit = (e) => {
-    console.log(transaction)
     e.preventDefault();
     axios.post(`${API_URL}/transactions`, transaction)
     .then((res)=> {
@@ -66,7 +65,7 @@ function TransactionNewForm() {
           <br />
           <input type="submit"/>
         </form>
-
+        <Link to={"/"}> <button> Cancel </button></Link>
     </div>
   );
 }
