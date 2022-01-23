@@ -11,7 +11,7 @@ function TransactionNewForm() {
   const [ transaction, setTransaction ] = useState({
     date: "",
     name: "",
-    amount: null,
+    amount: 0,
     from: ""
   });
 

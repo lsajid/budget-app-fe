@@ -19,12 +19,12 @@ function Transactions() {
     })
 
     let accountTotal = transactions.map((el) => el.amount).reduce((acc, curr) => {
-        return acc + curr;
+        return Number(acc) + Number(curr);
     }, 0);
 
     return (
       <div className='index'>
-          <div>Account Total: {accountTotal} </div>
+          <div>Account Total: ${accountTotal.toFixed(2)} </div>
         <section>
             <table>
                 <thead>

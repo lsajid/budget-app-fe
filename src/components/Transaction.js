@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 
 function Transaction( { index, transaction} ) {
-
+    let showAmount = Number(transaction.amount).toFixed(2)
+    console.log(showAmount)
   return (
     <tr>
         <td>
@@ -13,7 +14,7 @@ function Transaction( { index, transaction} ) {
             <Link to={`/transactions/${index}`}> {transaction.name} </Link> 
         </td>
         <td>
-            {transaction.amount}
+            ${showAmount}
         </td>
     </tr>
   );
