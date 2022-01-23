@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className="back">
       <NavBar/>
       <main>
         <Routes>
@@ -26,7 +26,7 @@ function App() {
             <Route path="*" element={<Error/>}/>
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 

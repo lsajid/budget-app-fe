@@ -34,7 +34,7 @@ function TransactionNewForm() {
           <input
             id="date"
             value={transaction.date}
-            type="text"
+            type="date"
             placeholder="ex: November 16"
             onChange={handleTextChange}
           />
