@@ -1,37 +1,104 @@
+//dependencies
 import { useEffect, useState } from 'react';
-import Transaction from './Transaction';
 import axios from "axios";
+
+//components
+import Transaction from './Transaction';
+
+//material UI
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import MoodBadIcon from '@mui/icons-material/MoodBad';
-// import {Chart} from "./Chart"
+
+//Chart.js
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+const options = {
+    indexAxis: "x",
+    elements: {
+        bar: {
+            borderWidth: 2,
+        },
+    },
+    responsive: true,
+    plugins: {
+        legend: {
+            position: "right",
+        },
+        title: {
+            display: true,
+            text: "~Pilot Chart.js: Expenditure and Bills Over Time per Transaction"
+        },
+    },
+};
+
+let labels = [ "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th"];
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 function Transactions() {
     const [ transactions, setTransactions ] = useState([]);
-    const [chartData, setChartData ] = useState({});
+    const [chartData, setChartData ] = useState({
+        labels: [],
+        datasets: [
+            {
+                label: "Gas",
+                data:[],
+                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+            }, {
+                label: "Bills",
+                data:[],
+                borderColor: "rgb(53, 162, 245)",
+                backgroundColor: "rgba(53, 162, 245, 0.5)",
+            },
+        ],
+    });
+
     useEffect(()=> {
         axios.get(`${API_URL}/transactions`)
         .then((res)=> {
             setTransactions(res.data);
-            // setChartData({
-            //     labels: res.data.map((transaction) => transaction.name),
-            //     datasets: [
-            //         {
-            //             label:"Price in USD",
-            //             data: res.data.map((el)=> el.amount),
-            //             backgroundColor: [
-            //                 "#ffbb11",
-            //                 "#ecf0f1",
-            //                 "#50AF95",
-            //                 "#f3ba2f",
-            //                 "#2a71d0"
-            //               ]
-            //         }
-            //     ]
-            // })
-        }).catch((err) => console.log(err))
+            const dataSet1 = []; 
+            const dataSet2 = []; 
+            let apiData = res.data;
+            console.log(apiData);
+            for ( let singleTransaction of apiData){
+                if(singleTransaction.amount > 0){
+                    console.log(singleTransaction);
+                    dataSet1.push(singleTransaction.amount);
+                } else if (singleTransaction.amount < 0) {
+                    dataSet2.push(singleTransaction.amount);
+                }
+            }
+            setChartData({
+                labels,
+                datasets: [
+                    {
+                        label: "Income",
+                        data: dataSet1,
+                        borderColor: "rgb(255, 99, 132)",
+                        backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    }, {
+                        label: "Bills",
+                        data: dataSet2,
+                        borderColor: "rgb(53, 162, 245)",
+                        backgroundColor: "rgba(53, 162, 245, 0.5)",
+                    },
+                ],
+            })
+            console.log("~~~ARRAYDATA", dataSet1, dataSet2)
+        }).catch((err) => console.log(err));
     }, []);
 
     let transactionsArr = transactions.map((transaction, index) => {
@@ -46,7 +113,7 @@ function Transactions() {
         return Number(acc) + Number(curr);
     }, 0);
 
-    let copyArray = transactions.map((el) => el)
+    let copyArray = transactions.map((el) => el);
 
     let expenses = copyArray.reduce((acc, currObj) => {
         if(currObj.amount < 0){
@@ -54,7 +121,7 @@ function Transactions() {
         } else {
             return acc + 0
         }
-    },  0)
+    },  0);
     
     let colors = () => {
         if(accountTotal >= 1000){
@@ -92,6 +159,10 @@ function Transactions() {
                 </tbody>
             </table>
         </section>  
+        <section className='Bar'>
+            <h5> Please note that this is a demo</h5>
+            <Bar data={chartData} options={options}/>
+        </section>
       </div>
     );
 }
