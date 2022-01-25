@@ -4,6 +4,7 @@ import axios from "axios";
 
 //components
 import Transaction from './Transaction';
+import PieChart from './chart/PieChart';
 
 //material UI
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
@@ -76,9 +77,9 @@ function Transactions() {
             for ( let singleTransaction of apiData){
                 if(singleTransaction.amount > 0){
                     console.log(singleTransaction);
-                    dataSet1.push(singleTransaction.amount);
+                    dataSet1.push(Number(singleTransaction.amount));
                 } else if (singleTransaction.amount < 0) {
-                    dataSet2.push(singleTransaction.amount);
+                    dataSet2.push(Number(singleTransaction.amount));
                 }
             }
             setChartData({
@@ -159,9 +160,16 @@ function Transactions() {
                 </tbody>
             </table>
         </section>  
-        <section className='Bar'>
+        <section className='charts'>
             <h5> Please note that this is a demo</h5>
-            <Bar data={chartData} options={options}/>
+            <div className='bar-graph' style={{width:'80%', height:'50%'}}>
+                <Bar data={chartData} options={options}/>
+            </div>
+            <hr/>
+            <br/>
+            <div className='pie-chart' style={{width:'60%', height:'50%'}}>
+                <PieChart/>
+            </div>
         </section>
       </div>
     );
