@@ -27,19 +27,20 @@ function TransactionDetails() {
   };
 
   return (
-    <article className="transaction-details">
-        <h1> Transaction Details </h1>
-
-        <div className="info-container">
-          <div className="date">Date: {transactions.date}</div>
-          <div className="name">Expenditure: {transactions.name}</div>
-          <div className="amount">${transactions.amount}</div>
-          <div className="from">By: {transactions.from}</div>
+    <article className="details-container">
+        <h1> View Transaction Details </h1>
+        <hr className='hrFancy'/>
+        <br/>
+        <div className="details-info-container">
+          <h4 className="date">Date: {transactions.date}</h4>
+          <h4 className="name">Expenditure: {transactions.name}</h4>
+          <h4 className="amount">Amount: ${transactions.amount}</h4>
+          <h4 className="from">By: {transactions.from}</h4>
         </div>
         <div className="buttons">
-          <Link to={`/`}> <button>Back</button> </Link>
-          <Link to={`/transactions/${index}/edit`}> <button>Edit</button> </Link>
-          <button onClick={handleDelete}> Delete</button>
+          <Link to={`/`}> <button className="details-buttons">Back</button> </Link>
+          <Link to={`/transactions/${index}/edit`}> <button className="details-buttons">Edit</button> </Link>
+          <button className="details-buttons" onClick={handleDelete}> Delete</button>
         </div>
     </article>
   );

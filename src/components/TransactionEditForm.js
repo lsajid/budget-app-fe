@@ -40,6 +40,9 @@ function TransactionEditForm() {
 
   return (
     <div className="edit-container">
+        <h2>Edit Transaction Form</h2>
+        <hr className='hrFancy'/>
+        <br/>
         <form onSubmit={handleSubmit}>
           <label htmlFor="date"> Date: </label>
           <input
@@ -49,7 +52,7 @@ function TransactionEditForm() {
             placeholder="ex: November 16"
             onChange={handleTextChange}
           />
-          <label htmlFor="name"> Description: </label>
+          <label htmlFor="name"> Name: </label>
           <input
             id="name"
             value={transaction.name}
@@ -74,9 +77,11 @@ function TransactionEditForm() {
             onChange={handleTextChange}
           />
           <br />
-          <input type="submit"/>
+          <br />
+          <input className="edit-buttons" type="submit"/>
         </form>
-        <Link to={"/"}> <button> Cancel </button></Link>
+
+          <Link to={"/"}> <button className='edit-buttons'> Cancel </button></Link>
     </div>
   );
 }

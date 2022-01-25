@@ -29,6 +29,9 @@ function TransactionNewForm() {
 
   return (
     <div className="new-container">
+        <h2>Add Transaction Form</h2>
+        <hr className='hrFancy'/>
+        <br/>
         <form onSubmit={handleSubmit}>
           <label htmlFor="date"> Date: </label>
           <input
@@ -38,7 +41,7 @@ function TransactionNewForm() {
             placeholder="ex: November 16"
             onChange={handleTextChange}
           />
-          <label htmlFor="name"> Description: </label>
+          <label htmlFor="name"> Name: </label>
           <input
             id="name"
             value={transaction.name}
@@ -63,9 +66,10 @@ function TransactionNewForm() {
             onChange={handleTextChange}
           />
           <br />
-          <input type="submit"/>
+          <br/>
+          <input className="new-buttons" type="submit"/>
         </form>
-        <Link to={"/"}> <button> Cancel </button></Link>
+        <Link to={"/"}> <button className="new-buttons"> Cancel </button></Link>
     </div>
   );
 }

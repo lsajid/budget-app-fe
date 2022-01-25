@@ -160,15 +160,24 @@ function Transactions() {
                 </tbody>
             </table>
         </section>  
-        <section className='charts'>
-            <h5> Please note that this is a demo</h5>
-            <div className='bar-graph' style={{width:'80%', height:'50%'}}>
-                <Bar data={chartData} options={options}/>
-            </div>
-            <hr/>
-            <br/>
-            <div className='pie-chart' style={{width:'60%', height:'50%'}}>
-                <PieChart/>
+        <section className='charts-container'>
+            <div style={{width:'80%', height:'50%'}}>
+                <div>Bar-Graph</div>
+                <div className='bar-graph'>
+                    <Bar data={chartData} options={options}/>
+                    <h6> Figure 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit. amcorper, congue tel. </h6>
+                </div>
+                <div>
+                </div>
+                <hr/>
+                <br/>
+           
+                <div className='pie-chart' style={{width:'40%', height:'30%'}}>
+                    <h3> Account Summary </h3>
+                    <PieChart/>
+                    <h6> Figure 2: Lorem ipsum dolor sit amet.</h6>
+                </div>
+           
             </div>
         </section>
       </div>

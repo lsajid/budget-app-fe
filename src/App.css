@@ -74,7 +74,6 @@
   padding: 20px;
   border-radius: 15px;
   background-color: #e6e4dd;
-  /* background-image: url(http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/f3cf538ee0b2945.png); */
   box-shadow: rgba(0, 0, 0, 0.11) 0px 3px 8px;
 }
 
@@ -97,3 +96,128 @@ tbody {
   height: 3px;
 }
 
+.charts{
+  justify-content: center;
+  align-items: center;
+}
+
+.charts-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://i.pinimg.com/564x/eb/3e/ee/eb3eee4e1d6b7c99df734bbf30598bb1.jpg);
+  border-radius: 3px;
+  border-style: double;
+  border-color: #c9184a;
+  border-width: 1px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: larger; 
+}
+
+.bar-graph{
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F7F2;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+  border-radius: 3px;
+  border-style: double;
+  border-color: #8A8E91;
+  border-width: 4px;
+}
+
+.pie-chart{
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F7F2;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
+  border-radius: 3px;
+  border-style: double;
+  border-color: #8A8E91;
+  border-width: 4px;
+}
+
+.edit-container, .new-container, .details-container {
+  border-radius: 3px;
+  border-style: double;
+  border-color: #8A8E91;
+  border-width: 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F7F2;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.edit-buttons, .new-buttons, .details-buttons {
+  margin: 10px;
+  padding: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: ghostwhite;
+  font-size: 1em;
+  background-color: #cfbaf0;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.edit-buttons, .new-buttons:hover{
+    background-color: #d49eca;
+    color: rgb(253, 253, 253);
+    letter-spacing: 2px;
+}
+
+.hrFancy {
+  border: 0;
+  border-top: medium double #CCC;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #CCC;
+  text-align: center;
+}
+
+.hrFancy::after {
+  content: "ℒ𝒮";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.4em;
+  padding: 0 0.3em;
+  background: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.details-info-container {
+  margin: 10px;
+  padding: 20px;
+  background-color: ghostwhite;
+  border-radius: 600px;
+}
+
+.details-buttons {
+  margin: 10px;
+  padding: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: ghostwhite;
+  font-size: 1em;
+  background-color: #cfbaf0;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.details-buttons:hover{
+    background-color: #d49eca;
+    color: rgb(253, 253, 253);
+    letter-spacing: 2px;
+}
