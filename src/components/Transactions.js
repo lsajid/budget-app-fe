@@ -46,10 +46,16 @@ function Transactions() {
         return Number(acc) + Number(curr);
     }, 0);
 
-    let expenses = transactions.map((el)=> Number(el.amount) < 0 ? Number(el.amount) : 0).reduce((acc, curr) => {
-        return Number(acc) + Number(curr);
-    }, 0);
+    let copyArray = transactions.map((el) => el)
 
+    let expenses = copyArray.reduce((acc, currObj) => {
+        if(currObj.amount < 0){
+            return acc + Number(currObj.amount) 
+        } else {
+            return acc + 0
+        }
+    },  0)
+    
     let colors = () => {
         if(accountTotal >= 1000){
             return <div style={{backgroundColor: "#119462", color: "white", borderRadius: "10px", padding: "10px"}} className='display-account'> Account Balance: ${accountTotal.toFixed(2)} <EmojiEmotionsIcon/></div>
