@@ -96,25 +96,23 @@ tbody {
   height: 3px;
 }
 
-.charts{
-  justify-content: center;
-  align-items: center;
-}
 
 .charts-container{
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url(https://i.pinimg.com/564x/eb/3e/ee/eb3eee4e1d6b7c99df734bbf30598bb1.jpg);
-  border-radius: 3px;
+  border-radius: 10px;
   border-style: double;
   border-color: #c9184a;
+  border-spacing: 10px;
   border-width: 1px;
   margin: 20px;
   padding: 20px;
   text-align: center;
   border-radius: 10px;
   font-size: larger; 
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 3px 8px;
 }
 
 .bar-graph{
@@ -128,6 +126,8 @@ tbody {
   border-style: double;
   border-color: #8A8E91;
   border-width: 4px;
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 3px 8px;
+
 }
 
 .pie-chart{
@@ -141,6 +141,7 @@ tbody {
   border-style: double;
   border-color: #8A8E91;
   border-width: 4px;
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 3px 8px;
 }
 
 .edit-container, .new-container, .details-container {
